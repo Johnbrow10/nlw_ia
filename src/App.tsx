@@ -5,9 +5,14 @@ import { Textarea } from './components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './components/ui/select';
 import { Slider } from './components/ui/slider';
 import { VideoInputForm } from './components/video-input-form';
+import { PromptSelect } from './components/prompt-select';
 
 
 export function App() {
+
+  function handlePromptSelected(template: string) {
+    console.log(template)
+  }
 
   return (
     <div className='min-h-screen flex flex-col'>
@@ -53,15 +58,7 @@ export function App() {
 
             <div className='space-y-2'>
               <label>Prompt</label>
-              <Select>
-                <SelectTrigger>
-                  <SelectValue placeholder="Selecione um prompt..." />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value='title'>Tìtulo do Youtube </SelectItem>
-                  <SelectItem value='gpt-3.5'>Descrição do Youtube </SelectItem>
-                </SelectContent>
-              </Select>
+              <PromptSelect onPromptSelected={handlePromptSelected} />
             </div>
 
             <div className='space-y-2'>
